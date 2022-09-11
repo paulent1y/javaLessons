@@ -1,6 +1,6 @@
 package by.paulent1y;
 
-public class Program {
+public class HomeWorkApp {
     public static void main(String[] args) {
         printThreeWords();
         checkSumSign();
@@ -22,8 +22,8 @@ public class Program {
 
     public static void printColor(){
         int value = 10;
-        if (value<1) System.out.println("Краный");
-        else if (value>0 && value<101) System.out.println("Желтый");
+        if (value<=0) System.out.println("Краный");
+        else if (value>0 && value<=100) System.out.println("Желтый");
         else System.out.println("Зеленый");
     }
 
