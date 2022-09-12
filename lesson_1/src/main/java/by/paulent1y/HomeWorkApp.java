@@ -73,7 +73,17 @@ public class HomeWorkApp {
 
             System.out.println("task ***");
             ArrayCarousel ac = new ArrayCarousel();
-            ac.shiftArray(new int[]  {1,2,3,4}, 2);
+            ac.shiftArray(new int[]  {}, 2);
+            ac.shiftArray(new int[]  {1}, 2);
+            ac.shiftArray(new int[]  {1,2}, 3);
+            ac.shiftArray(new int[]  {1,2,3,4,5,6,7,8,9,10}, 0);
+            ac.shiftArray(new int[]  {1,2,3,4,5,6,7,8,9,10}, 1);
+            ac.shiftArray(new int[]  {1,2,3,4,5,6,7,8,9,10}, 3);
+            ac.shiftArray(new int[]  {1,2,3,4,5,6,7,8,9,10}, 15);
+            ac.shiftArray(new int[]  {1,2,3,4,5,6,7,8,9,10}, -1);
+            ac.shiftArray(new int[]  {1,2,3,4,5,6,7,8,9,10}, -11);
+
+
 
         }
     }
