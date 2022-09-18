@@ -2,6 +2,7 @@ package by.paulent1y;
 
 class Cat extends Animal {
 
+    private static int instanceCounter;
     static int maxRunDistance = 200;
     static int maxSwimDistance = 0;
     public Cat(String _name) {
@@ -13,11 +14,8 @@ class Cat extends Animal {
         return instanceCounter;
     }
 
-    public void run(int meters){
-        super.run(meters);
-    }
-
+    @Override
     public void swim(int meters){
-        System.out.println("Poor " + name + " will drawn T_T \nDont put cats in the water please") ;
+        System.out.println("Poor " + name + " will drawn! T_T \n!!!Dont put " + this.getClass().getSimpleName() + " in the water please") ;
     }
 }

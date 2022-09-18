@@ -1,10 +1,10 @@
 package by.paulent1y;
 
-class Dog extends Animal {
+public class Duck extends Animal {
     private static int instanceCounter;
-    static final int maxRunDistance = 500;
-    static final int maxSwimDistance = 10;
-    public Dog(String _name) {
+    static final int maxRunDistance = 20;
+    static final int maxSwimDistance = 150;
+    public Duck(String _name) {
         super(_name, maxRunDistance, maxSwimDistance);
         instanceCounter++;
     }
@@ -14,4 +14,3 @@ class Dog extends Animal {
     }
 
 }
-
