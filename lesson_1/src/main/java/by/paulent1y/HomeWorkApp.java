@@ -4,27 +4,22 @@ package by.paulent1y;
 public class HomeWorkApp {
 
     public static void main(String[] args) 	{
-        Animal a = new Animal("habba");
-        Cat catty = new Cat("Kika");
+//        Animal a = new Animal("habba");
+        Animal catty = new Cat("Kika");
         Dog doggo = new Dog("Dogo");
         Duck ducky = new Duck("Donald");
         int[] distances = {-1000, 10, 1000};
-        for (int distance:distances) {
-            System.out.println("=========  Run for " + distance + " meters  =========");
-            catty.run(distance);
-            doggo.run(distance);
-            ducky.run(distance);
-            System.out.println();
-            System.out.println("=========  Swim for " + distance + " meters  =========");
-            catty.swim(distance);
-            doggo.swim(distance);
-            ducky.swim(distance);
-            System.out.println();
-            System.out.println("=========  Fly for " + distance + " meters  =========");
-            catty.fly(distance);
-            doggo.fly(distance);
-            ducky.fly(distance);
-            System.out.println();
+        Animal[] animals = {catty, doggo, ducky};
+        for (Animal animal:animals) {
+            System.out.println("\n<====================== Testing " + animal.getClass().getSimpleName() + " " + animal.stats.name + " =============================>");
+            for (int distance : distances) {
+                System.out.print("Run for " + distance + " meters:\t");
+                animal.run(distance);
+                System.out.print("Swim for " + distance + " meters:\t");
+                animal.swim(distance);
+                System.out.print("Fly for " + distance + " meters\t");
+                animal.fly(distance);
+            }
         }
         new Dog("Harris").run(200);
 
