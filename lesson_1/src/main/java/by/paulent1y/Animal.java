@@ -6,19 +6,46 @@ import java.lang.invoke.MethodHandles;
 class Animal {
 
     private static int instanceCounter;
-    private int maxRunDistance = 1000;
-    int maxSwimDistance = 1000;
-    String name;
 
-    public Animal(String _name) {
+    public Stats stats;
+
+
+    class Stats {
+        String name;
+        static private int maxRunDistance = 1000;
+        static private int maxSwimDistance = 1000;
+        Stats(String _name){
+            name = _name;
+        }
+
+        public void setMaxRunDistance(int maxRunDistance) {
+            this.maxRunDistance = maxRunDistance;
+        }
+
+        public void setMaxSwimDistance(int maxSwimDistance) {
+            this.maxSwimDistance = maxSwimDistance;
+        }
+
+        public int getMaxRunDistance() {
+            return maxRunDistance;
+        }
+
+        public int getMaxSwimDistance() {
+            return maxSwimDistance;
+        }
+    }
+    public Animal() {
         instanceCounter++;
-        name = _name;
     }
 
     public Animal(String _name,int _maxRunDistance, int _maxSwimDistance) {
-        this(_name);
-        maxRunDistance = _maxRunDistance;
-        maxSwimDistance = _maxSwimDistance;
+        this();
+        this.stats = new Stats(_name);
+    }
+
+    public void setStats(int _maxRunDistance, int _maxSwimDistance) {
+        stats.setMaxRunDistance(_maxRunDistance);
+        stats.setMaxSwimDistance(_maxSwimDistance);
     }
 
     public static int getInstanceAmount() {
@@ -26,21 +53,24 @@ class Animal {
     }
 
     public void run(int meters){
-        String temp = name + ((meters<0)?" run back ":" run forward ");
-        System.out.print(temp) ;
-        if (Math.abs(meters) >= maxRunDistance)
-            System.out.println(maxRunDistance + "m and now this " + this.getClass().getSimpleName() + " is tired") ;
-        else
-            System.out.println(Math.abs(meters) + "m. This " + this.getClass().getSimpleName() + " is happy now") ;
+        move("run", meters, stats.getMaxRunDistance());
+
     }
 
     public void swim(int meters) {
-        String temp = name + ((meters<0)?" swim back ":" swim forward ");
-        System.out.print(temp) ;
-        if (Math.abs(meters) >= maxSwimDistance)
-            System.out.println(maxSwimDistance + "m and now this " + this.getClass().getSimpleName() + " is tired") ;
+        move("swim",meters, stats.getMaxSwimDistance());
+    }
+
+    public void move(String movementType, int meters, int maxDistance){
+        if (maxDistance == 0) {
+            System.out.println(this.getClass().getSimpleName() + " cant " + movementType + ". Put it back!");
+        }
+        System.out.print( stats.name + " " + movementType + " " + (meters<0?"back ":"forward "));
+
+        if (Math.abs(meters) >= maxDistance)
+            System.out.println(maxDistance + "m and now this " + this.getClass().getSimpleName() + " is tired") ;
         else
-            System.out.println(Math.abs(meters) + "m. This " + this.getClass().getSimpleName() + " is wet and happy") ;
+            System.out.println(Math.abs(meters) + "m. This " + this.getClass().getSimpleName() + " is happy and ready to " + movementType + " more") ;
     }
 
 

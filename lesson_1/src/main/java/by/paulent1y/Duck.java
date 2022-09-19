@@ -6,7 +6,10 @@ public class Duck extends Animal {
     static final int maxSwimDistance = 150;
     public Duck(String _name) {
         super(_name, maxRunDistance, maxSwimDistance);
+        this.stats = new Stats(_name);
         instanceCounter++;
+        this.stats.setMaxSwimDistance(maxSwimDistance);
+        this.stats.setMaxRunDistance(maxRunDistance);
     }
 
     public static int getInstanceAmount() {
