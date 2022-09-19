@@ -1,5 +1,6 @@
 package by.paulent1y;
 
+import javax.swing.*;
 import java.lang.Math;
 import java.lang.invoke.MethodHandles;
 
@@ -12,18 +13,24 @@ class Animal {
 
     class Stats {
         String name;
-        static private int maxRunDistance = 1000;
-        static private int maxSwimDistance = 1000;
+        private int maxRunDistance = 1000;
+        private int maxSwimDistance = 1000;
+
+        private int maxFlyDistance = 1000;
+
         Stats(String _name){
             name = _name;
         }
-
         public void setMaxRunDistance(int maxRunDistance) {
             this.maxRunDistance = maxRunDistance;
         }
 
         public void setMaxSwimDistance(int maxSwimDistance) {
             this.maxSwimDistance = maxSwimDistance;
+        }
+
+        public void setMaxFlyDistance(int maxFlyDistance) {
+            this.maxFlyDistance = maxFlyDistance;
         }
 
         public int getMaxRunDistance() {
@@ -33,19 +40,24 @@ class Animal {
         public int getMaxSwimDistance() {
             return maxSwimDistance;
         }
+
+        public int getMaxFlyDistance() {
+            return maxFlyDistance;
+        }
     }
     public Animal() {
         instanceCounter++;
     }
 
-    public Animal(String _name,int _maxRunDistance, int _maxSwimDistance) {
+    public Animal(String _name) {
         this();
         this.stats = new Stats(_name);
     }
 
-    public void setStats(int _maxRunDistance, int _maxSwimDistance) {
+    public void setStats(int _maxRunDistance, int _maxSwimDistance, int _maxFlyDistance) {
         stats.setMaxRunDistance(_maxRunDistance);
         stats.setMaxSwimDistance(_maxSwimDistance);
+        stats.setMaxFlyDistance(_maxFlyDistance);
     }
 
     public static int getInstanceAmount() {
@@ -61,9 +73,14 @@ class Animal {
         move("swim",meters, stats.getMaxSwimDistance());
     }
 
+    public void fly(int meters) {
+        move("fly",meters, stats.getMaxFlyDistance());
+    }
+
     public void move(String movementType, int meters, int maxDistance){
         if (maxDistance == 0) {
             System.out.println(this.getClass().getSimpleName() + " cant " + movementType + ". Put it back!");
+            return;
         }
         System.out.print( stats.name + " " + movementType + " " + (meters<0?"back ":"forward "));
 

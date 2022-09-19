@@ -4,11 +4,11 @@ package by.paulent1y;
 public class HomeWorkApp {
 
     public static void main(String[] args) 	{
-        Animal a = new Animal("habba",20,10);
+        Animal a = new Animal("habba");
         Cat catty = new Cat("Kika");
         Dog doggo = new Dog("Dogo");
         Duck ducky = new Duck("Donald");
-        int[] distances = {-1000, -1, 0, 1, 1000};
+        int[] distances = {-1000, 10, 1000};
         for (int distance:distances) {
             System.out.println("=========  Run for " + distance + " meters  =========");
             catty.run(distance);
@@ -19,6 +19,11 @@ public class HomeWorkApp {
             catty.swim(distance);
             doggo.swim(distance);
             ducky.swim(distance);
+            System.out.println();
+            System.out.println("=========  Fly for " + distance + " meters  =========");
+            catty.fly(distance);
+            doggo.fly(distance);
+            ducky.fly(distance);
             System.out.println();
         }
         new Dog("Harris").run(200);
