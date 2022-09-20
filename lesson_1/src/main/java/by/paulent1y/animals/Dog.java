@@ -1,17 +1,18 @@
-package by.paulent1y;
+package by.paulent1y.animals;
 
-class Cat extends Animal {
-
+class Dog extends Animal {
     private static int instanceCounter;
 
-    public Cat(String _name) {
+    public Dog(String _name) {
         super(_name);
         instanceCounter++;
         this.stats = new Stats(_name);
-        setStats(200, 0, 0);
+        setStats(500, 10, 0);
     }
 
     public static int getInstanceAmount() {
         return instanceCounter;
     }
+
 }
+

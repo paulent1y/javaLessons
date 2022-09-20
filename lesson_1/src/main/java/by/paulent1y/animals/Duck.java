@@ -1,4 +1,4 @@
-package by.paulent1y;
+package by.paulent1y.animals;
 
 public class Duck extends Animal {
     private static int instanceCounter;
