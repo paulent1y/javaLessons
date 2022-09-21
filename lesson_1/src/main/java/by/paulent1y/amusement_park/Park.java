@@ -12,6 +12,7 @@ class Park {
 
         public Attraction(String _name, float _cost) {
             super(_name, _cost);
+            description = "";
             minAge = 0;
         }
 
@@ -24,9 +25,10 @@ class Park {
             StringBuilder sb = new StringBuilder();
             sb.append("Attraction: ");
             sb.append(name).append("\n");
-            sb.append(description).append("\n");
-            sb.append("Cost: ").append(cost).append("  Age restriction:");
-            if (minAge==0) sb.append("no restrictions");
+            if (!description.equals(""))
+                sb.append(description).append("\n");
+            sb.append("Cost: ").append(cost).append("\tAge:");
+            if (minAge == 0) sb.append(" no restrictions\n");
             else sb.append(" older than ").append(minAge).append("\n");
 
 
@@ -40,6 +42,7 @@ class Park {
 
         public Food(String _name, float _cost) {
             super(_name, _cost);
+            description = "";
             veganFriendly = false;
             glutenFree = false;
         }
@@ -59,7 +62,12 @@ class Park {
             StringBuilder sb = new StringBuilder();
             sb.append("Food: ");
             sb.append(name).append("\n");
+            if (!description.equals(""))
+                sb.append(description).append("\n");
 
+            if (veganFriendly) sb.append("Good for vegans!\n");
+            if (glutenFree) sb.append("Free from gluten!\n");
+            sb.append("Cost: ").append(cost).append("\n");
             return sb.toString();
         }
     }
@@ -70,6 +78,7 @@ class Park {
         foods = new Food[0];
         attractions = new Attraction[0];
     }
+
     public void addFood(Food f) {
         foods = Arrays.copyOf(foods, foods.length + 1);
         foods[foods.length - 1] = f;
@@ -84,6 +93,14 @@ class Park {
         StringBuilder sb = new StringBuilder();
         sb.append("Marvelous amusement park \"");
         sb.append(parkName).append("\"\n");
+        for (Attraction a: attractions){
+            sb.append(a);
+            sb.append("\n");
+        }
+        for (Food f: foods){
+            sb.append(f);
+            sb.append("\n");
+        }
         return sb.toString();
     }
 }
