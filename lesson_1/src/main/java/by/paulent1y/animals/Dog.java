@@ -6,8 +6,11 @@ class Dog extends Animal {
     public Dog(String _name) {
         super(_name);
         instanceCounter++;
-        this.stats = new Stats(_name);
-        setStats(500, 10, 0);
+        this.stats = new Stats(_name,
+                500,
+                10,
+                0,
+                35);
     }
 
     public static int getInstanceAmount() {

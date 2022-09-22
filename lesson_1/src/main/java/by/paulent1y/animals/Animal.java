@@ -7,7 +7,7 @@ import java.lang.invoke.MethodHandles;
 class Animal {
 
     private static int instanceCounter;
-
+    String name;
     public Stats stats;
 
 
@@ -15,66 +15,41 @@ class Animal {
         String name;
         private int maxRunDistance = 1000;
         private int maxSwimDistance = 1000;
-
         private int maxFlyDistance = 1000;
 
-        Stats(String _name){
+        private int appetite = 50;
+        private boolean isHungry = true;
+
+        Stats(String _name, int _maxRunDistance, int _maxSwimDistance, int _maxFlyDistance, int _appetite){
             name = _name;
+            maxRunDistance = _maxRunDistance;
+            maxSwimDistance = _maxSwimDistance;
+            maxFlyDistance = _maxFlyDistance;
+            appetite = _appetite;
         }
-        public void setMaxRunDistance(int maxRunDistance) {
-            this.maxRunDistance = maxRunDistance;
-        }
-
-        public void setMaxSwimDistance(int maxSwimDistance) {
-            this.maxSwimDistance = maxSwimDistance;
-        }
-
-        public void setMaxFlyDistance(int maxFlyDistance) {
-            this.maxFlyDistance = maxFlyDistance;
-        }
-
-        public int getMaxRunDistance() {
-            return maxRunDistance;
-        }
-
-        public int getMaxSwimDistance() {
-            return maxSwimDistance;
-        }
-
-        public int getMaxFlyDistance() {
-            return maxFlyDistance;
-        }
-    }
-    public Animal() {
-        instanceCounter++;
     }
 
     public Animal(String _name) {
-        this();
-        this.stats = new Stats(_name);
+        name = _name;
+        instanceCounter++;
     }
 
-    public void setStats(int _maxRunDistance, int _maxSwimDistance, int _maxFlyDistance) {
-        stats.setMaxRunDistance(_maxRunDistance);
-        stats.setMaxSwimDistance(_maxSwimDistance);
-        stats.setMaxFlyDistance(_maxFlyDistance);
-    }
 
     public static int getInstanceAmount() {
         return instanceCounter;
     }
 
     public void run(int meters){
-        move("run", meters, stats.getMaxRunDistance());
+        move("run", meters, stats.maxRunDistance);
 
     }
 
     public void swim(int meters) {
-        move("swim",meters, stats.getMaxSwimDistance());
+        move("swim",meters, stats.maxSwimDistance);
     }
 
     public void fly(int meters) {
-        move("fly",meters, stats.getMaxFlyDistance());
+        move("fly",meters, stats.maxFlyDistance);
     }
 
     public void move(String movementType, int meters, int maxDistance){
@@ -90,6 +65,13 @@ class Animal {
             System.out.println(Math.abs(meters) + "m. This " + this.getClass().getSimpleName() + " is happy and ready to " + movementType + " more") ;
     }
 
+    public void eat(Plate p){
+        if (p.decreaseFood(stats.appetite)){
+            System.out.println(this.getClass().getSimpleName() + " " + name +  " just ate enough ");
+            stats.isHungry = false;
+        }
+        else System.out.println(this.getClass().getSimpleName() + " " + name +  " cannot eat from plate. It wanted " + stats.appetite + " but there was only " + p.getFood());
 
+    }
 }
 

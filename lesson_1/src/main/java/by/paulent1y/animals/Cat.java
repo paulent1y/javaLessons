@@ -7,8 +7,11 @@ class Cat extends Animal {
     public Cat(String _name) {
         super(_name);
         instanceCounter++;
-        this.stats = new Stats(_name);
-        setStats(200, 0, 0);
+        this.stats = new Stats(_name,
+                200,
+                0,
+                0,
+                20);
     }
 
     public static int getInstanceAmount() {

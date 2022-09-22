@@ -8,10 +8,25 @@ public class HomeWorkApp {
         Animal catty = new Cat("Kika");
         Dog doggo = new Dog("Dogo");
         Duck ducky = new Duck("Donald");
+
+        System.out.println("============================= Feeding stage ====================================");
+        Plate plate = new Plate(100);
+        plate.info();
+        doggo.eat(plate);
+        plate.info();
+        doggo.eat(plate);
+        plate.info();
+        doggo.eat(plate);
+        plate.info();
+        catty.eat(plate);
+        plate.info();
+        ducky.eat(plate);
+        plate.info();
+
         int[] distances = {-1000, 10, 1000};
         Animal[] animals = {catty, doggo, ducky};
         for (Animal animal:animals) {
-            System.out.println("\n<====================== Testing " + animal.getClass().getSimpleName() + " " + animal.stats.name + " =============================>");
+            System.out.println("\n<====================== Testing " + animal.getClass().getSimpleName() + " " + animal.stats.name + " movement =============================>");
             for (int distance : distances) {
                 System.out.print("Run for " + distance + " meters:\t");
                 animal.run(distance);
