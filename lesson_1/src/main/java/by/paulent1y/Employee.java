@@ -18,7 +18,7 @@ public class Employee {
     }
 
     public void getInfo() {
-        System.out.print("Employee " + name + " " + age + " years old");
+        System.out.print("Employee: " + name + " " + age + " years old");
         System.out.print(". Works as " + position + " with salary " + salary + "$");
         System.out.print(". Contacts: "  + email + ", +" + phone);
         System.out.println();

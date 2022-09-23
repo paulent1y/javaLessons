@@ -21,7 +21,7 @@ public class HomeWorkApp {
     public static Employee generateEmployee(){
         Random r = new Random();
         final String[] names = {"Vasiliy", "Andrew", "Piotrek","Ivan","Santa Claus","Victor","Anna","Ariel","Susanna","Ben Affleck","Tom Cruise", "Cat", "Marry Poppins", "Morty", };
-        final String[] positions = {"Cashier","Analyst","Programmer","Cleaner","Security","Manager","Technician","Baker","Butcher"};
+        final String[] positions = {"Cashier","Analyst","Programmer","Cleaner","Security","Manager","Technician","Baker","Butcher", "HR"};
         String name = names[r.nextInt(names.length)];
         int age = r.nextInt(16,100);
         String email = name.toLowerCase().replace(" ", "_") + (2022 - age) +   "@gmail.com";
