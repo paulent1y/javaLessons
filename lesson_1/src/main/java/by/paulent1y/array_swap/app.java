@@ -27,7 +27,7 @@ public class app {
         print(cc);
     }
 
-    public static <T> void print(T[] ar) {
+    public static void print(Object[] ar) {
         System.out.println(Arrays.toString(ar));
     }
 }

@@ -2,7 +2,7 @@ package by.paulent1y.array_swap;
 
 public class Swapper {
 
-    public static <T> void swapArrayElements(T[] ar, int pos1, int pos2) {
+    public static void swapArrayElements(Object[] ar, int pos1, int pos2) {
         if (pos1 < 0 || pos2 < 0) {
             System.out.println(
                     "Its not allowed for index to be less then 0. \nNo IllegalArgumentExceptions for today, but be careful next time!");
@@ -18,7 +18,7 @@ public class Swapper {
             return;
         }
 
-        T temp = ar[pos1];
+        Object temp = ar[pos1];
         ar[pos1] = ar[pos2];
         ar[pos2] = temp;
         System.out.println("swapped " + ar[pos2] + " & " + ar[pos1]);
