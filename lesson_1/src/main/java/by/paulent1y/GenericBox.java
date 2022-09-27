@@ -10,7 +10,7 @@ public class GenericBox <T, V>{
 
     }
 
-    public T getObj1() {
+    public <E> T getObj1() {
         return obj1;
     }
     public V getObj2() {
