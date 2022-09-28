@@ -2,8 +2,13 @@ package by.paulent1y.fruitbox;
 
 import java.util.ArrayList;
 
+/**
+ * Box class for storing any fruit type
+ * @param <T> any class that extends Fruit class
+ */
 public class Box<T extends Fruit> {
-    ArrayList<T> content;
+
+    private ArrayList<T> content;
     String name;
 
     public Box (String _name) {
@@ -16,11 +21,19 @@ public class Box<T extends Fruit> {
         this("Unnamed");
     }
 
+    /**
+     * adds fruit t to the box
+     * @param t any subclass of Fruit
+     */
     public void add(T t){
 
         content.add(t);
     }
 
+    /**
+     * Calculate weight of the box
+     * @return total weight of all instances in the box
+     */
     public int getWeight(){
 
         int total = 0;
@@ -30,11 +43,12 @@ public class Box<T extends Fruit> {
         return total;
     }
 
-    /*
-    //didnt read task carefully
-    //another one is correct
 
-    public void compare(Box<?> other) {
+    /**
+     * Advanced comparison of boxes weights
+     * @param other second box to compare with
+     */
+    public void compareFull(Box<?> other) {
 
         if (this == other)
             System.out.println("Its the same box -_ -");
@@ -46,9 +60,13 @@ public class Box<T extends Fruit> {
             System.out.println(other.name + " is " + (other.getWeight() - getWeight()) + " grams heavier than " + name);
     }
 
-    */ //my precious compare
+    /**
+     * Compares two boxes with any content
+     * @param other second box
+     * @return true if boxes are equal, false otherwise
+     */
     public boolean compare(Box<?> other) {
-        //this one is matches to task, but useless since weights are not normalized
+
         return getWeight()==other.getWeight();
     }
 
@@ -61,5 +79,6 @@ public class Box<T extends Fruit> {
     public String toString(){
         return "Box: " + name + ". Weight: " + getWeight() + " gr. Amount: " + content.size();
     }
+
 
 }
