@@ -1,11 +1,9 @@
-package by.paulent1y;
+package by.paulent1y.dnd;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 
-public class HomeWorkApp {
+public class app {
     public static void main(String[] args) {
         ArrayList<Character> charlist = new ArrayList<>();
         for (int i=0; i<500; i++) charlist.add(randomizeChar());

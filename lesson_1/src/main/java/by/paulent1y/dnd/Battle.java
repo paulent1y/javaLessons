@@ -1,6 +1,4 @@
-package by.paulent1y;
-
-import java.util.ArrayList;
+package by.paulent1y.dnd;
 
 public class Battle {
 
