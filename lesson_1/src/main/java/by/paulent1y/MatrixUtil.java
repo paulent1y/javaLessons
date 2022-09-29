@@ -47,6 +47,13 @@ public class MatrixUtil {
         return sumAnysizeMatrix(m);
     }
 
+    /**
+     * Calculate sum of all elements of matrix
+     * @param m matrix to calculate
+     * @return sum value
+     * @param <T>
+     * @throws MyArrayDataException  if any of String cells cannot be cast to int
+     */
     public static <T> int sumAnysizeMatrix(T[][] m) throws  MyArrayDataException {
         int sum = 0;
         for (int i = 0; i < m.length; i++) {
