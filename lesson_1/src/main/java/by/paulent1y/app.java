@@ -1,8 +1,8 @@
 package by.paulent1y;
 
-import static by.paulent1y.MatrixUtil.*;
 
 public class app {
+
     /**
      * 	Напишите метод, на вход которого подается двумерный строковый массив размером 4х4. При подаче массива другого размера необходимо бросить исключение MyArraySizeException.
      *
@@ -12,16 +12,33 @@ public class app {
      * @param args
      */
     public static void main(String[] args) {
-            final int size = 4;
-            String[][] matrix = new String[size][size];
-            stringFillMatrix(matrix);
-             printMatrix(matrix);
-            try {
-                int sum = sumAnysizeMatrix(matrix);
-                System.out.println(sum);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+            testWithMatrixOfSize(4); // this one is fine
+            testWithMatrixOfSize(5); // this one will throw exception
+            testWithInvalidCell();
+    }
 
+    public static void testWithMatrixOfSize(int size) {
+        String[][] matrix = new String[size][size];
+        MatrixUtil.stringFillMatrix(matrix);
+        MatrixUtil.printMatrix(matrix);
+        try {
+            int sum = MatrixUtil.sum4x4MatrixOnly(matrix);
+            System.out.println(sum);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void testWithInvalidCell() {
+        String[][] matrix = new String[4][4];
+        MatrixUtil.stringFillMatrix(matrix);
+        matrix[2][2] = "hello";
+        MatrixUtil.printMatrix(matrix);
+        try {
+            int sum = MatrixUtil.sum4x4MatrixOnly(matrix);
+            System.out.println(sum);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }
