@@ -62,7 +62,8 @@ public class MatrixUtil {
                     sum+= Integer.parseInt((String)m[i][j]);
                 }
                 catch (Exception e){
-                    throw new MyArrayDataException("Wrong data in a matrix cell");
+                    throw new MyArrayDataException(
+                            "Wrong data in a matrix cell\nMust be numerical but was \"" + m[i][j] + "\"");
                 }
 
             }
