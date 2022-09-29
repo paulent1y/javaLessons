@@ -14,7 +14,8 @@ public class app {
     public static void main(String[] args) {
             testWithMatrixOfSize(4); // this one is fine
             testWithMatrixOfSize(5); // this one will throw exception
-            testWithInvalidCell();
+            testWithInvalidCell(); // here cell was changed and it will throw second exception
+            testWithoutMatrixSizeLimit(50);
     }
 
     public static void testWithMatrixOfSize(int size) {
@@ -23,7 +24,7 @@ public class app {
         MatrixUtil.printMatrix(matrix);
         try {
             int sum = MatrixUtil.sum4x4MatrixOnly(matrix);
-            System.out.println(sum);
+            System.out.println("Sum of all elements: " + sum);
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -36,7 +37,20 @@ public class app {
         MatrixUtil.printMatrix(matrix);
         try {
             int sum = MatrixUtil.sum4x4MatrixOnly(matrix);
-            System.out.println(sum);
+            System.out.println("Sum of all elements: " + sum);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void testWithoutMatrixSizeLimit(int size) {
+        System.out.println("Matrix of size " + size);
+        String[][] matrix = new String[size][size];
+        MatrixUtil.stringFillMatrix(matrix);
+//        MatrixUtil.printMatrix(matrix); // may be too big in console view
+        try {
+            int sum = MatrixUtil.sumAnysizeMatrix(matrix);
+            System.out.println("Sum of all elements: " + sum);
         } catch (Exception e) {
             System.out.println(e);
         }
