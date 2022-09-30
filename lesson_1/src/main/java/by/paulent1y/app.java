@@ -11,31 +11,13 @@ public class app {
     public static void main(String[] args) throws Exception {
         String f = "file.txt";
 
-        writeTo(f, "\nrick and morty");
+        //Writer.writeTo(f, "\nrick and morty");
 
 
-        readFrom(tweets);
+        Reader.readFrom(tweets);
     }
 
-    public static void readFrom(String filename) {
-        try (FileReader file = new FileReader(filename);
-             BufferedReader reader = new BufferedReader(file)) {
-            String line;
-            while ((line = reader.readLine()) != null)
-                System.out.println(line);
-        } catch (Exception e) {
-            System.out.println(e);
-            System.out.println("Damn boy");
-        }
-    }
 
-    public static void writeTo(String filename, String text) {
-        try (FileWriter file = new FileWriter(filename, true);
-             BufferedWriter writer = new BufferedWriter(file)) {
-            writer.append(text);
-        } catch (Exception e) {
-            System.out.println(e);
-            System.out.println("Damn boy");
-        }
-    }
+
+
 }
