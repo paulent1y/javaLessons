@@ -6,7 +6,7 @@ import java.io.*;
 
 public class app {
 
-    static final String tweets = "elon_musk_tweets.csv";
+    static final String tweets = "tweets/2022.csv";
     static final String stocks = "TSLA.csv";
     public static void main(String[] args) throws Exception {
         String f = "file.txt";
