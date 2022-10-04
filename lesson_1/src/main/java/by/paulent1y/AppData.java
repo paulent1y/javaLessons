@@ -35,48 +35,20 @@ public class AppData {
         }
     }
 
-    public void readFrom(String filename) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
-
-            String l = reader.readLine();
-            headers = l.split(";");
-            int rows = Files.readAllLines(Path.of(filename)).size() - 1;
-            data = new int[rows][];
-            int i = 0;
-            while ((l = reader.readLine()) != null) {
-                data[i++] = fillDataRow(l);
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error in writing" + e);
-        }
-        System.out.println("Read successfully");
+    public String[] getHeaders() {
+        return headers;
     }
 
-    public int[] fillDataRow(String line) {
-        String[] vals = line.split(";");
-        int[] valsInt = new int[vals.length];
-        for (int i = 0; i < vals.length; i++)
-            valsInt[i] = Integer.parseInt(vals[i]);
-        return valsInt;
+    public void setHeaders(String[] headers) {
+        this.headers = headers;
     }
 
-    public boolean writeTo(String filename) {
-        if (headers == null || data == null) {
-            System.out.println((headers == null)
-                    ? "headers is null, please fill or read it from file"
-                    : "data is null, please buildRandomData(), fill or read from file");
-            return false;
-        }
+    public int[][] getData() {
+        return data;
+    }
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
-
-            writer.append(toString());
-        } catch (Exception e) {
-            System.out.println("Error in writing");
-            System.out.println(e);
-        }
-        return true;
+    public void setData(int[][] data) {
+        this.data = data;
     }
 
     public String toString() {
