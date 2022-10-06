@@ -1,14 +1,7 @@
 package by.paulent1y.task2;
 
 public class app {
-    /*
 
-
-
-
-
-
-     */
     public static void main(String[] args) {
         //Написать простой класс Телефонный Справочник, который хранит в себе список фамилий и телефонных номеров.
         PhoneBook pb = new PhoneBook();
@@ -19,8 +12,14 @@ public class app {
         pb.add("Emily", 1421515125);
         pb.add("Miley", "+142151155125");
 
+        System.out.println("Too short number:");
+        pb.add("Vazovskiy", 405 );
+
         // а с помощью метода get() искать номер телефона по фамилии.
         pb.get("Miley");
+
+        System.out.println("Getting not existing contact");
+        pb.get("Notexisting");
 
         //Следует учесть, что под одной фамилией может быть несколько телефонов (в случае однофамильцев),
         //тогда при запросе такой фамилии должны выводиться все телефоны.

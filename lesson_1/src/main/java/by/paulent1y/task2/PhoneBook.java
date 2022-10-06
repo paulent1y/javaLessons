@@ -12,7 +12,7 @@ public class PhoneBook {
     }
 
     public void add(String name, String number){
-        if (number.length() < 5) {
+        if (number == null || number.length() < 7) {
             System.out.println("Number must be at least 6 digits long");
             return;
         }
@@ -33,11 +33,11 @@ public class PhoneBook {
 
     public void get(String name){
         if (!data.containsKey(name)) {
-            System.out.println("No such users in phonebook");
+            System.out.println("Phonebook doesn't contains any contacts named \"" + name + "\"");
             return;
         }
         ArrayList<String> nums = data.get(name);
         for(String s: nums)
-            System.out.println("Contact: " + name + " Number: " + s);
+            System.out.println("Contact: " + name + ". Number: " + s);
     }
 }

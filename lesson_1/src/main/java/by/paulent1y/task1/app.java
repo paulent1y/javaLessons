@@ -4,15 +4,9 @@ import java.util.*;
 
 public class app {
 
-    /*
-    Создать массив с набором слов (10-20 слов, должны встречаться повторяющиеся).
-
-
-    */
     public static void main(String[] args) {
         String[] allWords = {"follow","crazy","bubble","orange","crash","whole","loss","oval","rapid","magical","trade","property"};
         Random r = new Random();
-
 
         //working with List interface
         //Создать массив с набором слов (10-20 слов, должны встречаться повторяющиеся).
